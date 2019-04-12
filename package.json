@@ -1,0 +1,27 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "平时练习demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoringDay/demo.git"
+  },
+  "keywords": [
+    "html",
+    "js",
+    "css"
+  ],
+  "author": "baichun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoringDay/demo/issues"
+  },
+  "homepage": "https://github.com/BoringDay/demo#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6"
+  }
+}
