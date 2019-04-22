@@ -1,6 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
     const devMode = argv.mode !== "production";
@@ -10,6 +11,11 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, "./dist"),
             filename: "index_bundle.js"
+        },
+        resolve: {
+            alias: {
+                "@": path.resolve("src")
+            }
         },
         module: {
             rules: [
@@ -27,18 +33,31 @@ module.exports = (env, argv) => {
                         "css-loader",
                         "postcss-loader"
                     ]
+                },
+                {
+                    test: /\.html$/,
+                    use: [
+                        {
+                            loader: "html-loader",
+                            options: {
+                                minimize: true
+                            }
+                        }
+                    ]
                 }
             ]
         },
         plugins: [
-            // ...,
+            new CleanWebpackPlugin(), //打包前清理dist目录
             new MiniCssExtractPlugin({
                 filename: "[name].css",
                 chunkFilename: "[id].css"
             }),
             new HtmlWebPackPlugin({
+                //模板
                 template: "./src/index.html",
-                filename: "./index.html"
+                filename: "./index.html",
+                "js": [ "index_bundle.js"],
             })
         ]
     };
