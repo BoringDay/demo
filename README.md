@@ -18,6 +18,8 @@ src
 └───algorithm (算法)  
 |      |
 |      └───bubbleSort(冒泡排序,鸡尾酒排序)
+|      |
+|      └───quickSort(快速排序)
 |  
 └───util(工具函数)
        |

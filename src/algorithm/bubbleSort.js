@@ -1,12 +1,6 @@
 import { deepClone } from "@/util/deepClone.js";
 
 let demoArr = [1, 9, 5, 6, 2, 8, 7]; //实例数组
-
-function swap(val1, val2) {
-    let temp = val1;
-    val1 = val2;
-    val2 = temp;
-}
 /**
  * 冒泡排序
  * 原理:
