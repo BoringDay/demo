@@ -10,9 +10,6 @@
 ** 跑npm提示 Unexpected end of JSON input 可以执行npm cache clean --force解决
 
 ## 文件目录  
-### 算法（algorithm）:  
-    冒泡排序(bubbleSort)
-### 工具类（util）
 ```
 src
 |   index.js(入口函数)
