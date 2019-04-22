@@ -145,8 +145,8 @@ bubbleSort3(deepClone(demoArr));
  * 第四版优化-冒泡排序->鸡尾酒算法,头尾开始冒泡
  */
 export function bubbleUpgrade(arr) {
-    let len = arr.length,
-        sortNum = 1;
+    console.time("bubbleUpgrade_time");
+    let len = arr.length
     let left = 0,
         right = len - 1,
         shift = 0;
@@ -177,7 +177,6 @@ export function bubbleUpgrade(arr) {
         left = shift;
 
         // console.log(`bubbleUpgrade_第${sortNum}遍left:${left}`, arr);
-        ++sortNum;
     }
     // console.log(`bubbleUpgrade_比较次数：${sortNum}`);
     console.timeEnd("bubbleUpgrade_time");
