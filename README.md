@@ -24,3 +24,5 @@ src
 └───util(工具函数)
        |
        └───deepClone(深拷贝)
+       |
+       └───renameFile(批量修改文件名)
