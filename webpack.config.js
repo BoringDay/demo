@@ -1,7 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CleanWebpackPlugin = require("_clean-webpack-plugin@2.0.1@clean-webpack-plugin");
 
 module.exports = (env, argv) => {
     const devMode = argv.mode !== "production";
@@ -59,6 +59,12 @@ module.exports = (env, argv) => {
                 filename: "./index.html",
                 "js": [ "index_bundle.js"],
             })
-        ]
+        ],
+        devServer: {
+            contentBase: path.join(__dirname, "dist"),
+            compress: true,
+            host: "0.0.0.0",
+            port: 9000
+          }
     };
 };
