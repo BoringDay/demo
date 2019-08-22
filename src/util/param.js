@@ -12,9 +12,9 @@ class Param {
   }
 
   checkParams () {
-    let params = this.params
+    const params = this.params
 
-    for (let i in params) {
+    for (const i in params) {
       if (!this._validate(i, params[i])) return false
     }
 
@@ -25,7 +25,7 @@ class Param {
     for (var i = 1; i < rules.length; i++) {
       if (!this._validateType(key, rules[0], rules[i])) {
         if (this.ctx) {
-          let response = new Response(this.ctx)
+          const response = new Response(this.ctx)
           response.error({
             code: CODE_PARAM_ERROR,
             msg: this.errorMsg
@@ -50,16 +50,18 @@ class Param {
 
     return false
   }
+
   /**
      * 验证是否为空
      * @param {string} type key
      * @param {any} val     val
      */
   _execRequire (type, val) {
-    let flag = !!val && Rule.Reg_Require.test(val)
+    const flag = !!val && Rule.Reg_Require.test(val)
     if (!flag) this.errorMsg = `${type} can not be empty`
     return flag
   }
+
   /**
      *
      * @param {string} type  key
@@ -67,7 +69,7 @@ class Param {
      * @param {RegExp} rule  正则表达式
      */
   _execReg (type, val, rule) {
-    let flag = rule.test(val)
+    const flag = rule.test(val)
     if (!flag) this.errorMsg = `${type} is invalid`
     return flag
   }

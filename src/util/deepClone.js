@@ -1,16 +1,16 @@
 /**
  * 深拷贝
  */
-export function deepClone(val){
-  let newVal;
-  if(val instanceof Array){
+export function deepClone (val) {
+  let newVal
+  if (val instanceof Array) {
     newVal = []
-    for(let i=0; i<val.length; i++){
+    for (let i = 0; i < val.length; i++) {
       newVal.push(deepClone(val[i]))
     }
-  } else if(val instanceof Object){
+  } else if (val instanceof Object) {
     newVal = {}
-    for(let i in val){
+    for (const i in val) {
       newVal[i] = deepClone(val[i])
     }
   } else {
@@ -27,7 +27,6 @@ export function deepClone(val){
  * 用instanceof判断array也属于object,instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上
  * arguments.callee 调用自身,避免重名修改太多地方->严格模式下es5禁止了
  * */
-
 
 /**
  * 参考：

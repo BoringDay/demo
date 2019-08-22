@@ -1,7 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("_clean-webpack-plugin@2.0.1@clean-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
     const devMode = argv.mode !== "production";
@@ -44,7 +44,14 @@ module.exports = (env, argv) => {
                             }
                         }
                     ]
-                }
+                },
+                {
+                  test: /\.(vue|js)$/,
+                  loader: 'eslint-loader',
+                  exclude: /node_modules/,
+                  // 预处理
+                  enforce: 'pre'
+          }
             ]
         },
         plugins: [
@@ -63,7 +70,6 @@ module.exports = (env, argv) => {
         devServer: {
             contentBase: path.join(__dirname, "dist"),
             compress: true,
-            host: "0.0.0.0",
             port: 9000
           }
     };

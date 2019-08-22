@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>demo</title>
-</head>
-<body>
-  dsds
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>demo</title>
+    </head>
+    <body>
+        <div id="app">
+            <div></div>
+            {{ message }}
+            {{ time }}
+            <div>{{cover | bs2Filter(25, 28)}}</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+        <script>
+            var app = new Vue({
+              el: '#app',
+              data: {
+                time: +new Date(),
+                message: 'Hello Vue!',
+                cover:
+                        'https://kxd-res.yystatic.com/a/xh_week_star_ranking_list/assets/img/chaojiliwu-3a809ff01f.png'
+              },
+              methods: {
+                changeTime () {
+                  this.time = +new Date()
+                  setTimeout(() => {
+                    this.changeTime()
+                  }, 1000)
+                }
+              },
+              mounted () {
+                // setInterval(()=>{
+                //   this.time = +new Date()
+                // },1000)
+                this.changeTime()
+              },
+              filters: {
+                bs2Filter: function (cover, w, h) {
+                  console.log('cover,w, h', cover, w, h)
+                  return cover
+                }
+              }
+            })
+        </script>
+    </body>
 </html>

@@ -5,5 +5,5 @@
 import '@/algorithm/new'
 import VConsole from 'vconsole/dist/vconsole.min'
 
-var vConsole = new VConsole();
-console.log('Hello world');
+new VConsole(); // eslint-disable-line
+console.log('Hello world')
